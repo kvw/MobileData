@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Symbols xmlns="http://schemas.postsharp.org/2.0/symbols">
+  <Class Class="#1=T:[iPASoftware.iRAD.Shared.Aspects]iPASoftware.iRAD.Shared.Aspects.Composite.NotifyPropertiesChangedAttribute">
+    <Instance Declaration="#2=T:[iPASoftware.iRAD.Client.Web]iPASoftware.iRAD.Client.Infrastructure.AdminApp.ViewModels.InstanceViewModel" Id="6dc7d368d883714f">
+      <Target>
+        <JoinPoint Advised="#3=M:[iPASoftware.iRAD.Client.Web]iPASoftware.iRAD.Client.Infrastructure.AdminApp.ViewModels.InstanceViewModel::set_InstanceManager([iPASoftware.iRAD.Client.Web]iPASoftware.iRAD.Client.Infrastructure.IInstanceManager)" Advising="#1" Description="#4=Intercepted by advice OnPropertySet" Semantic="Setter" />
+        <JoinPoint Advised="#5=M:[iPASoftware.iRAD.Client.Web]iPASoftware.iRAD.Client.Infrastructure.AdminApp.ViewModels.InstanceViewModel::set_Id(System.String)" Advising="#1" Description="#4" Semantic="Setter" />
+        <JoinPoint Advised="#6=M:[iPASoftware.iRAD.Client.Web]iPASoftware.iRAD.Client.Infrastructure.AdminApp.ViewModels.InstanceViewModel::set_CssClass(System.String)" Advising="#1" Description="#4" Semantic="Setter" />
+        <JoinPoint Advised="#7=M:[iPASoftware.iRAD.Client.Web]iPASoftware.iRAD.Client.Infrastructure.AdminApp.ViewModels.InstanceViewModel::set_MemoryUsage(System.Single)" Advising="#1" Description="#4" Semantic="Setter" />
+        <JoinPoint Advised="#8=M:[iPASoftware.iRAD.Client.Web]iPASoftware.iRAD.Client.Infrastructure.AdminApp.ViewModels.InstanceViewModel::set_SurvivedMemory(System.Single)" Advising="#1" Description="#4" Semantic="Setter" />
+        <JoinPoint Advised="#9=M:[iPASoftware.iRAD.Client.Web]iPASoftware.iRAD.Client.Infrastructure.AdminApp.ViewModels.InstanceViewModel::set_Workingset(System.Single)" Advising="#1" Description="#4" Semantic="Setter" />
+        <JoinPoint Advised="#10=M:[iPASoftware.iRAD.Client.Web]iPASoftware.iRAD.Client.Infrastructure.AdminApp.ViewModels.InstanceViewModel::set_Name(System.String)" Advising="#1" Description="#4" Semantic="Setter" />
+        <JoinPoint Advised="#11=M:[iPASoftware.iRAD.Client.Web]iPASoftware.iRAD.Client.Infrastructure.AdminApp.ViewModels.InstanceViewModel::set_ProcessorUsage(System.String)" Advising="#1" Description="#4" Semantic="Setter" />
+        <JoinPoint Advised="#12=M:[iPASoftware.iRAD.Client.Web]iPASoftware.iRAD.Client.Infrastructure.AdminApp.ViewModels.InstanceViewModel::set_State(System.String)" Advising="#1" Description="#4" Semantic="Setter" />
+        <JoinPoint Advised="#13=M:[iPASoftware.iRAD.Client.Web]iPASoftware.iRAD.Client.Infrastructure.AdminApp.ViewModels.InstanceViewModel::set_IPAddress(System.String)" Advising="#1" Description="#4" Semantic="Setter" />
+        <JoinPoint Advised="#14=M:[iPASoftware.iRAD.Client.Web]iPASoftware.iRAD.Client.Infrastructure.AdminApp.ViewModels.InstanceViewModel::set_TerminateCommand(System.Windows.Input.ICommand)" Advising="#1" Description="#4" Semantic="Setter" />
+        <JoinPoint Advised="#15=M:[iPASoftware.iRAD.Client.Web]iPASoftware.iRAD.Client.Infrastructure.AdminApp.ViewModels.InstanceViewModel::set_TombstoneCommand(System.Windows.Input.ICommand)" Advising="#1" Description="#4" Semantic="Setter" />
+      </Target>
+    </Instance>
+  </Class>
+</Symbols>

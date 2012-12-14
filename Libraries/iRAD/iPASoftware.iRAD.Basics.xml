@@ -1,0 +1,949 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>iPASoftware.iRAD.Basics</name>
+    </assembly>
+    <members>
+        <member name="T:iPASoftware.iRAD.Basics.Base62">
+            <summary>
+            Struct whose numbering system consists of 0..9 a..z A..Z.  For example, "10" == 62.
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.Collections.DeepObservableCollection`1">
+            <summary>
+            The DeepObservableCollection is essentially the same as an <see cref="T:System.Collections.ObjectModel.ObservableCollection`1"/>, but it provides
+            extra observation on the items of the collection. The type of the collection items must therefor 
+            implement <see cref="T:System.ComponentModel.INotifyPropertyChanged"/>.
+            </summary>
+            <typeparam name="T">The type of the collection items.</typeparam>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Collections.DeepObservableCollection`1.AddPropertyChanged(`0)">
+            <summary>
+            Adds the <see cref="E:iPASoftware.iRAD.Basics.Collections.DeepObservableCollection`1.ItemPropertyChanged"/> event handler to an item, if that item type supports the <see cref="T:System.ComponentModel.INotifyPropertyChanged"/> interface.
+            </summary>
+            <param name="item">The item to add the eventhandler on.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Collections.DeepObservableCollection`1.RemovePropertyChanged(`0)">
+            <summary>
+            Removes the <see cref="E:iPASoftware.iRAD.Basics.Collections.DeepObservableCollection`1.ItemPropertyChanged"/> event handler from an item, if that item type supports the <see cref="T:System.ComponentModel.INotifyPropertyChanged"/> interface.
+            </summary>
+            <param name="item">The item to remove the eventhandler from.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Collections.DeepObservableCollection`1.ItemPropertyChangedProxy(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            Handles the <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"/> event for a collection item.
+            This just reports that the item had a property changed through
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.NotifyPropertyChangedBase">
+            <summary>
+            no comment.
+            Base class for INotifyPropertyChanged implementation.
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.Composite.IEventBus">
+            <summary>
+            Enables loosely-coupled publication of and subscription to events.
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Composite.IEventBus.Subscribe``1(iPASoftware.iRAD.Basics.Composite.IHandle{``0})">
+            <summary>
+            Subscribes an instance to all events declared through implementations of <see cref="T:iPASoftware.iRAD.Basics.Composite.IHandle`1"/>
+            </summary>
+            <param name="instance">The instance to subscribe for event publication.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Composite.IEventBus.Unsubscribe``1(iPASoftware.iRAD.Basics.Composite.IHandle{``0})">
+            <summary>
+            Unsubscribes the instance from all events.
+            </summary>
+            <param name="instance">The instance to unsubscribe.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Composite.IEventBus.Publish``1(``0)">
+            <summary>
+            Publishes a message.
+            </summary>
+            <typeparam name="T">The type of message being published.</typeparam>
+            <param name="message">The message instance.</param>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.Composite.IHandle`1">
+            <summary>
+            Denotes a class which can handle a particular type of message.
+            </summary>
+            <typeparam name="TMessage">The type of message to handle.</typeparam>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Composite.IHandle`1.Handle(`0)">
+            <summary>
+            Handles the message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.Data.DataBinder">
+            <summary>
+            This is actually a reimplementation of the classic System.Web.DataBinder. But since we don't want to use
+            those assemblies in most scenarios, we use our own version.
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.Data.Inflector">
+            <summary>
+            The Inflector class transforms words from one 
+            form to another. For example, from singular to plural.
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Data.Inflector.Pluralize(System.String)">
+            <summary>
+            Return the plural of a word.
+            </summary>
+            <param name="word">The singular form</param>
+            <returns>The plural form of <paramref name="word"/></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Data.Inflector.Singularize(System.String)">
+            <summary>
+            Return the singular of a word.
+            </summary>
+            <param name="word">The plural form</param>
+            <returns>The singular form of <paramref name="word"/></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Data.Inflector.Capitalize(System.String)">
+            <summary>
+            Capitalizes a word.
+            </summary>
+            <param name="word">The word to be capitalized.</param>
+            <returns><paramref name="word"/> capitalized.</returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Extensions.CryptographyExtensions.AesEncrypt(System.String)">
+            <summary>
+            Using the standard key (not that safe, assembly could be de-compiled to retrieve the key).
+            </summary>
+            <param name="dataToEncrypt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Extensions.CryptographyExtensions.AesEncrypt(System.String,System.Byte[])">
+            <summary>
+            Encrypts the given string using the symmetric AES algorithm.
+            </summary>
+            <param name="dataToEncrypt"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Extensions.CryptographyExtensions.AesDecrypt(System.String)">
+            <summary>
+            Using the standard key (not that safe, assembly could be de-compiled to retrieve the key).
+            </summary>
+            <param name="dataToEncrypt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Extensions.CryptographyExtensions.AesDecrypt(System.String,System.Byte[])">
+            <summary>
+            Decrypts the given string using the symmetric AES algorithm.
+            </summary>
+            <param name="encryptedString"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Extensions.ExpressionExtensions.ToPropertySelector``1(System.String)">
+            <summary>
+             Turns a string property name into an Expression property selector.
+            </summary>
+            <param name="propertyName"></param>
+            <typeparam name="TOwner"></typeparam>
+            <exception cref="T:System.ArgumentException">propertyName does not exist on TOwner</exception>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Extensions.ExpressionExtensions.GetMemberInfo(System.Linq.Expressions.Expression)">
+            <summary>
+            Gets the member info represented by an expression.
+            </summary>
+            <param name="expression">The member expression.</param>
+            <returns>The member info represented by the expression.</returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Extensions.ExpressionExtensions.InvokeGetter``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},``0)">
+            <summary>
+            Invokes the getter of the expression representing a property selector on the given instance.
+            This property selector can have multiple levels like, x => x.LevelOne.LevelTwo
+            </summary>
+            <typeparam name="TInstance"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <param name="propertySelector">The expression representing the property selector</param>
+            <param name="instance">The instance to invoke the getter on</param>
+            <returns>The value of the property selector</returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Extensions.ExpressionExtensions.InvokeSetter``2(System.Linq.Expressions.Expression{System.Func{``0,``1}},``0,``1)">
+            <summary>
+            Invokes the setter of the expression representing a property selector on the given instance.
+            The given value will be set.
+            This property selector can have multiple levels like, x => x.LevelOne.LevelTwo
+            </summary>
+            <typeparam name="TInstance"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <param name="propertySelector">The expression representing the property selector</param>
+            <param name="instance">The instance to invoke the getter on</param>
+            <param name="value">The value to be set</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Extensions.ExpressionExtensions.InvokeSetterNotTypeSafe``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},``0,System.Object)">
+            <summary>
+            Same as InvokeSetter, but not type safe on the value to set.
+            Use with care, when unable to specify the TValue generic.
+            </summary>
+            <typeparam name="TInstance"></typeparam>
+            <param name="propertySelector"></param>
+            <param name="instance"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Extensions.ExpressionExtensions.ToPropertyPath(System.Linq.Expressions.Expression)">
+            <summary>
+            Returns the path represented by a property selector expression.
+            For instance "x => x.Person.Address" returns "Person.Address"
+            </summary>
+            <param name="propertySelector">The property selector</param>
+            <returns>A string representing the full property path</returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Extensions.ObjectExtensions.EqualsKeyWise``1(``0,``0,iPASoftware.iRAD.Basics.Objects.Strategies.IKeyLambdaCache)">
+            <summary>
+            Compares two objects, based on their unique key.
+            </summary>
+            <param name="anObject"></param>
+            <param name="anotherObject"></param>
+            <param name="keyLambdaCache"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Extensions.ObjectExtensions.GetKey``1(``0,iPASoftware.iRAD.Basics.Objects.Strategies.IKeyLambdaCache)">
+            <summary>
+            Returns the unique key of the given object.
+            The key is retrieved using the given key strategies.
+            If the key is not found, an exception is thrown.
+            </summary>
+            <param name="anObject"></param>
+            <param name="keyLambdaCache"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Extensions.ObjectExtensions.InvokeMethod(System.Object,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="instance"></param>
+            <param name="methodName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Extensions.ObjectExtensions.InvokeMethod(System.Object,System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="instance"></param>
+            <param name="methodName"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Extensions.ObjectExtensions.InvokeMethodCore(System.Object,System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="instance"></param>
+            <param name="methodName"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Extensions.StringExtensions.Compress(System.String)">
+            <summary>
+            Compresses the string.
+            </summary>
+            <param name="text">The text.</param>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Extensions.StringExtensions.Decompress(System.String)">
+            <summary>
+            Decompresses the string.
+            </summary>
+            <param name="compressedText">The compressed text.</param>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Extensions.StringExtensions.CommaSeparatedStringToList(System.String)">
+            <summary>
+            Converts the given comma separated string to a list of strings
+            </summary>
+            <param name="aString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Extensions.StringExtensions.UrlEncode(System.String)">
+            <summary>
+            Performs urlencoding on a string.
+            </summary>
+            <param name="source">The original string.</param>
+            <returns>The urlencoded string.</returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Extensions.StringExtensions.UrlEncode(System.String,System.Text.Encoding)">
+            <summary>
+            Performs urlencoding on a string.
+            </summary>
+            <param name="source">The original string.</param>
+            <returns>The urlencoded string.</returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Extensions.StringExtensions.UrlEncode(System.Byte[])">
+            <summary>
+            Performs urlencoding on a series of bytes (representing a string).
+            </summary>
+            <param name="bytes">The original string as bytes.</param>
+            <returns>The urlencoded string as bytes.</returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Extensions.StringExtensions.UrlDecode(System.String)">
+            <summary>
+            Performs urlencoding on a string.
+            </summary>
+            <param name="source">The original string.</param>
+            <returns>The urlencoded string.</returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Extensions.StringExtensions.UrlDecode(System.String,System.Text.Encoding)">
+            <summary>
+            Performs urlencoding on a string.
+            </summary>
+            <param name="source">The original string.</param>
+            <returns>The urlencoded string.</returns>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.IoC.BuildUpAttribute">
+            <summary>
+            This attribute allows to specify a dependency property with a fallback type, which is used when the
+            actual dependency property type cannot be resolved.
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.IoC.BuildUpAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:iPASoftware.iRAD.Basics.IoC.BuildUpAttribute"/> class.
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.IoC.BuildUpAttribute.CreateResolver(System.Type)">
+            <summary>
+            Creates the resolver policy.
+            </summary>
+            <param name="typeToResolve">The type to resolve.</param>
+            <returns>The resolver policy</returns>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.IoC.BuildUpResolverPolicy">
+            <summary>
+            This resolver policy implements the resolving of a type with a fallback type value for if the specified
+            type cannot be found.
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.IoC.BuildUpResolverPolicy.#ctor(System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:iPASoftware.iRAD.Basics.IoC.DependencyWithFallbackResolverPolicy"/> class.
+            </summary>
+            <param name="typeToResolve">The type to resolve.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.IoC.BuildUpResolverPolicy.Resolve(Microsoft.Practices.ObjectBuilder2.IBuilderContext)">
+            <summary>
+            Resolves the specified context.
+            </summary>
+            <param name="context">The context.</param>
+            <returns>The result of the resolving process.</returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.IoC.DependencyInjection.Initialize(System.Func{Microsoft.Practices.Unity.IUnityContainer})">
+            <summary>
+            Initializes the DI container with the specified container.
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="P:iPASoftware.iRAD.Basics.IoC.DependencyInjection.Container">
+            <summary>
+            Provides access to the common container. Takes specific containers for specific assemblies into account.
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.IoC.DependencyWithFallbackAttribute">
+            <summary>
+            This attribute allows to specify a dependency property with a fallback type, which is used when the
+            actual dependency property type cannot be resolved.
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.IoC.DependencyWithFallbackAttribute.#ctor(System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:iPASoftware.iRAD.Basics.IoC.DependencyWithFallbackAttribute"/> class.
+            </summary>
+            <param name="fallbackType">Type of the fallback.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.IoC.DependencyWithFallbackAttribute.CreateResolver(System.Type)">
+            <summary>
+            Creates the resolver policy.
+            </summary>
+            <param name="typeToResolve">The type to resolve.</param>
+            <returns>The resolver policy</returns>
+        </member>
+        <member name="P:iPASoftware.iRAD.Basics.IoC.DependencyWithFallbackAttribute.FallbackType">
+            <summary>
+            Gets or sets the fallback type to use.
+            </summary>
+            <value>The type of the fallback.</value>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.IoC.DependencyWithFallbackResolverPolicy">
+            <summary>
+            This resolver policy implements the resolving of a type with a fallback type value for if the specified
+            type cannot be found.
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.IoC.DependencyWithFallbackResolverPolicy.#ctor(System.Type,System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:iPASoftware.iRAD.Basics.IoC.DependencyWithFallbackResolverPolicy"/> class.
+            </summary>
+            <param name="typeToResolve">The type to resolve.</param>
+            <param name="fallbackType">Type of the fallback.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.IoC.DependencyWithFallbackResolverPolicy.Resolve(Microsoft.Practices.ObjectBuilder2.IBuilderContext)">
+            <summary>
+            Resolves the specified context.
+            </summary>
+            <param name="context">The context.</param>
+            <returns>The result of the resolving process.</returns>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.IoC.RegistrationGroup">
+            <summary>
+            <para>Defines a registration group. This is a simple class which gets the Container injected. 
+            It has an abstract method Register which has to be overridden. Use this method to register additional
+            types or instances into the container.</para>
+            <para>Mainly used to group registrations, as the name says.</para>
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.IoC.RegistrationGroup.Register">
+            <summary>
+            Registers additional types into the container.
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.IoC.ResolveManyExtension">
+            <summary>
+            This extension adds the ResolveManyStrategy for integrating MEF exports into unity.
+            See <see cref="T:iPASoftware.iRAD.Basics.IoC.ResolveManyStrategy"/> for more info.
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.IoC.ResolveManyExtension.Initialize">
+            <summary>
+            Initializes the extension. This adds a <see cref="T:iPASoftware.iRAD.Basics.IoC.ResolveManyStrategy"/> strategy to the container. 
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:iPASoftware.iRAD.Basics.IoC.ResolveManyStrategy" -->
+        <member name="M:iPASoftware.iRAD.Basics.IoC.ResolveManyStrategy.PreBuildUp(Microsoft.Practices.ObjectBuilder2.IBuilderContext)">
+            <summary>
+            Invokes the PreBuildUp fase.
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.IoC.UnityContainerExtensions.RegisterTypeAsSingleton``2(Microsoft.Practices.Unity.IUnityContainer)">
+            <summary>
+            Registers a type as a singleton. 
+            This is not exactly the same as RegisterInstance (which requires one to generate an instance
+            before registering, and in this case, the singleton is resolved the first time it is needed. The same instance is 
+            returned afterwards.
+            </summary>
+            <typeparam name="TRegistered">The type to register.</typeparam>
+            <typeparam name="TActual">The actual type to return when resolving.</typeparam>
+            <param name="container">The container to register the type in.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.IoC.UnityContainerExtensions.RegisterTypeAsSingleton``2(Microsoft.Practices.Unity.IUnityContainer,System.String)">
+            <summary>
+            Registers a type as a singleton under a specified key. 
+            This is not exactly the same as RegisterInstance (which requires one to generate an instance
+            before registering, and in this case, the singleton is resolved the first time it is needed. The same instance is 
+            returned afterwards.
+            </summary>
+            <typeparam name="TRegistered">The type to register.</typeparam>
+            <typeparam name="TActual">The actual type to return when resolving.</typeparam>
+            <param name="container">The container to register the type in.</param>
+            <param name="key">The key under which the type to register.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.IoC.UnityContainerExtensions.RegisterTypeAsSingletonAndResolve``2(Microsoft.Practices.Unity.IUnityContainer)">
+            <summary>
+            Registers a type as a singleton. 
+            This is not exactly the same as RegisterInstance (which requires one to generate an instance
+            before registering, and in this case, the singleton is resolved the first time it is needed. The same instance is 
+            returned afterwards.
+            </summary>
+            <typeparam name="TRegistered">The type to register.</typeparam>
+            <typeparam name="TActual">The actual type to return when resolving.</typeparam>
+            <param name="container">The container to register the type in.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.IoC.UnityContainerExtensions.RegisterTypeAsSingletonAndResolve``2(Microsoft.Practices.Unity.IUnityContainer,System.String)">
+            <summary>
+            Registers a type as a singleton under a specified key. 
+            This is not exactly the same as RegisterInstance (which requires one to generate an instance
+            before registering, and in this case, the singleton is resolved the first time it is needed. The same instance is 
+            returned afterwards.
+            </summary>
+            <typeparam name="TRegistered">The type to register.</typeparam>
+            <typeparam name="TActual">The actual type to return when resolving.</typeparam>
+            <param name="container">The container to register the type in.</param>
+            <param name="key">The key under which the type to register.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.IoC.UnityContainerExtensions.RegisterGroup``1(Microsoft.Practices.Unity.IUnityContainer)">
+            <summary>
+            Performs a groupregistration. Resolves an instance of the <see cref="!:TRegistrationGroup"/> type, and then
+            calls the Register method on that object to perform the groupregistration.
+            </summary>
+            <typeparam name="TRegistrationGroup"></typeparam>
+            <param name="container"></param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.IoC.UnityContainerExtensions.RegisterTypeWithConstructorArgs``2(Microsoft.Practices.Unity.IUnityContainer,System.Object[])">
+            <summary>
+            Convenience method to register a type with a specified set of constructor arguments.
+            </summary>
+            <typeparam name="TRegistered">The type to register.</typeparam>
+            <typeparam name="TActual">The actual type to return when resolving.</typeparam>
+            <param name="container">The container to register the type in.</param>
+            <param name="constructorArgs">An array of constructor parameters to pass to the constructor.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.IoC.UnityContainerExtensions.RegisterTypeWithConstructorArgs``2(Microsoft.Practices.Unity.IUnityContainer,System.String,System.Object[])">
+            <summary>
+            Convenience method to register a type with a specified set of constructor arguments.
+            </summary>
+            <typeparam name="TRegistered">The type to register.</typeparam>
+            <typeparam name="TActual">The actual type to return when resolving.</typeparam>
+            <param name="container">The container to register the type in.</param>
+            <param name="key">The key under which the type to register.</param>
+            <param name="constructorArgs">An array of constructor parameters to pass to the constructor.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.IoC.UnityContainerExtensions.RegisterTypeWithConstructorArgs(Microsoft.Practices.Unity.IUnityContainer,System.Type,System.Type,System.Object[])">
+            <summary>
+            Convenience method to register a type with a specified set of constructor arguments.
+            </summary>
+            <param name="container">The container to register the type in.</param>
+            <param name="registeredType">The type to register.</param>
+            <param name="actualType">The actual type to return when resolving.</param>
+            <param name="constructorArgs">An array of constructor parameters to pass to the constructor.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.IoC.UnityContainerExtensions.RegisterTypesInAssembly(Microsoft.Practices.Unity.IUnityContainer,System.Reflection.Assembly)">
+            <summary>
+            
+            </summary>
+            <param name="container"></param>
+            <param name="assembly"></param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.IoC.UnityContainerExtensions.ComposeAll``1(Microsoft.Practices.Unity.IUnityContainer)">
+            <summary>
+            
+            </summary>
+            <typeparam name="TResolve"></typeparam>
+            <param name="container"></param>
+            <returns></returns>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.Localization.LocalizedAttribute">
+            <summary>
+            Attribute for localization.
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Objects.Strategies.IKeyLambdaCache.GetKeyLambda``1">
+            <summary>
+            Returns a function that returns the key for an object of type TObject.
+            object function(TObject entity) = (entity.Id);
+            </summary>
+            <typeparam name="TObject"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Objects.Strategies.IKeyLambdaCache.GetKeyExpression``1">
+            <summary>
+            Returns an Expression that expresses the key for an object of type TObject
+            x => x.Id
+            </summary>
+            <typeparam name="TObject"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Objects.Strategies.IKeyLambdaCache.GetKeyPredicate``1(System.Object)">
+            <summary>
+            Returns a predicate that checks for key equality.
+            bool function(TObject entity)  = (x => x.Id == id)
+            </summary>
+            <typeparam name="TObject"></typeparam>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.Objects.Strategies.IdAttributeKeyStrategy">
+            <summary>
+            Strategy looking for [Id] attributes on properties.
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Objects.Strategies.KeyLambdaCache.GetKeyLambda``1">
+            <summary>
+            Returns a function that returns the key for an object of type TObject.
+            object function(TObject entity) = (entity.Id);
+            </summary>
+            <typeparam name="TObject"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Objects.Strategies.KeyLambdaCache.GetKeyPredicate``1(System.Object)">
+            <summary>
+            Returns a predicate that checks for key equality.
+            bool function(TEntity entity)  = (x => x.Id == id)
+            </summary>
+            <typeparam name="TObject"></typeparam>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Objects.Strategies.KeyLambdaCache.GetExpression``1">
+            <summary>
+            Returns an Expression that expresses the key for an object of type TObject
+            x => x.Id
+            </summary>
+            <typeparam name="TObject"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Objects.Strategies.KeyLambdaCache.GetKeyPropertyName(System.Type)">
+            <summary>
+            Finds the id property using all known IKeyStrategies.
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.Resources.Localization">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:iPASoftware.iRAD.Basics.Resources.Localization.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:iPASoftware.iRAD.Basics.Resources.Localization.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:iPASoftware.iRAD.Basics.Resources.Localization.Validation_EmailAddress">
+            <summary>
+              Looks up a localized string similar to Email address is not valid..
+            </summary>
+        </member>
+        <member name="P:iPASoftware.iRAD.Basics.Resources.Localization.Validation_NotNull">
+            <summary>
+              Looks up a localized string similar to Value cannot be empty..
+            </summary>
+        </member>
+        <member name="P:iPASoftware.iRAD.Basics.Resources.Localization.Validation_Range_GreaterThan">
+            <summary>
+              Looks up a localized string similar to Value must be greater than {0}..
+            </summary>
+        </member>
+        <member name="P:iPASoftware.iRAD.Basics.Resources.Localization.Validation_Range_GreaterThanOrEqual">
+            <summary>
+              Looks up a localized string similar to Value must be greater than or equal to {0}..
+            </summary>
+        </member>
+        <member name="P:iPASoftware.iRAD.Basics.Resources.Localization.Validation_Range_SmallerThan">
+            <summary>
+              Looks up a localized string similar to Value must be smaller than {0}..
+            </summary>
+        </member>
+        <member name="P:iPASoftware.iRAD.Basics.Resources.Localization.Validation_Range_SmallerThanOrEqual">
+            <summary>
+              Looks up a localized string similar to Value must be smaller than or equal to {0}..
+            </summary>
+        </member>
+        <member name="P:iPASoftware.iRAD.Basics.Resources.Localization.Validation_Regex">
+            <summary>
+              Looks up a localized string similar to {0} does not match regular expression {1}..
+            </summary>
+        </member>
+        <member name="P:iPASoftware.iRAD.Basics.Resources.Localization.Validation_StringLength_GreaterThan">
+            <summary>
+              Looks up a localized string similar to Text must be longer than {0} characters..
+            </summary>
+        </member>
+        <member name="P:iPASoftware.iRAD.Basics.Resources.Localization.Validation_StringLength_GreaterThanOrEqual">
+            <summary>
+              Looks up a localized string similar to Text must be longer than or equal to {0} characters..
+            </summary>
+        </member>
+        <member name="P:iPASoftware.iRAD.Basics.Resources.Localization.Validation_StringLength_SmallerThan">
+            <summary>
+              Looks up a localized string similar to Text must be shorter than {0} characters..
+            </summary>
+        </member>
+        <member name="P:iPASoftware.iRAD.Basics.Resources.Localization.Validation_StringLength_SmallerThanOrEqual">
+            <summary>
+              Looks up a localized string similar to Text must be shorter than or equal to {0} characters..
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.Security.AnyRolePrincipal">
+            <summary>
+            Principal that is in all roles.
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.Security.Configuration.SecurityConfigurationSection">
+            <summary>
+            Config section information
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.Services.Behaviors.AddKeyValueDefaultOptionForServiceCallers">
+            <summary>
+            A default service calling option that adds the given key/value in the request header.
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.Services.Behaviors.AddKeyValueEndpointBehavior">
+            <summary>
+            Endpoint behavior that will add a request header containg the given key/value.
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.Services.Behaviors.AddKeyValueMessageInspector">
+            <summary>
+            Message Inspector that will add a request header containing the given key/value.
+            </summary>
+        </member>
+        <member name="P:iPASoftware.iRAD.Basics.Services.Calling.Options.ServiceConfigurationProvider.OptionRegistrationType">
+            <summary>
+            Implementations of ServiceConfigurationProvider are always registered as options of type ServiceConfigurationProvider.
+            This is needed for the InvokerBase's dynamic service configuration.
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.Services.Calling.Options.WithoutNotification">
+            <summary>
+            This is just a marker option.
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Services.Exceptions.ExceptionRegenerator.AsException(iPASoftware.iRAD.Basics.Services.Faults.ServiceFault)">
+            <summary>
+            Reconstructs an exception from a ServiceFault.
+            </summary>
+            <param name="fault"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Services.Exceptions.ExceptionRegenerator.LookupExceptionType``1(System.Func{System.Type,System.Boolean},System.String,System.Boolean)">
+            <summary>
+            Looks for the exception in the specified matching assemblies.
+            </summary>
+            <typeparam name="TException"></typeparam>
+            <param name="finder"></param>
+            <param name="cacheKey"></param>
+            <param name="allowCoreLibs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Services.Exceptions.ExceptionRegenerator.Reconstruct``1(System.Type,iPASoftware.iRAD.Basics.Services.Faults.ServiceFault)">
+            <summary>
+            Actual reconstruction of an exception from a type using the Fault ExceptionData structure.
+            </summary>
+            <typeparam name="TException"></typeparam>
+            <param name="exceptionType"></param>
+            <param name="fault"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Services.Exceptions.ExceptionRegenerator.Construct(System.Exception,iPASoftware.iRAD.Basics.Services.Faults.ServiceFault)">
+            <summary>
+            Filling of a ServiceFault from a given exception using the Fault ExceptionData structure.
+            All [DataMember] properties from the exception are added to the serviceFault's ExceptionData.
+            </summary>
+            <param name="exception"></param>
+            <param name="serviceFault"></param>
+            <returns></returns>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.Services.Exceptions.ServiceFaultException">
+            <summary>
+            This exception wraps a ServiceFault that cannot be reconstructed.
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.Services.Rest.RestClient">
+            <summary>
+            Dynamic rest client.
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.Objects.Strategies.IdKeyStrategy">
+            <summary>
+            KeyStrategy looking for *Id properties on the given object.
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.ThrowIf.ArgumentNull``1(System.Linq.Expressions.Expression{System.Func{System.Object,``0}})">
+            <summary>
+            Checks if an argument is null. Pass the argument as a lambda expression.
+            </summary>
+            <example>
+            Guard.ArgumentNull(x => someArgument);
+            </example>
+            <typeparam name="TArgument">The type of the argument.</typeparam>
+            <param name="func">The lambda expression defining the argument.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.ThrowIf.ArgumentNull``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+            Checks if an argument is null. Pass the argument as a lambda expression.
+            </summary>
+            <example>
+            Guard.ArgumentNull(() => someArgument);
+            </example>
+            <typeparam name="TArgument">The type of the argument.</typeparam>
+            <param name="func">The lambda expression defining the argument.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.ThrowIf.ArgumentNull``1(``0,System.String)">
+            <summary>
+            Checks if an argument is null. Pass the argument along with the name of the argument.
+            </summary>
+            <example>
+            Guard.ArgumentNull(someArgument, "someArgument");
+            </example>
+            <param name="value">The argument value.</param>
+            <param name="name">The argument name.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.ThrowIf.ArgumentNullOrEmpty(System.Linq.Expressions.Expression{System.Func{System.Object,System.String}})">
+            <summary>
+            Checks if a string argument is null or empty. Pass the argument as a lambda expression.
+            </summary>
+            <example>
+            Guard.ArgumentNullOrEmpty(x => someStringArgument);
+            </example>
+            <param name="func">The lambda expression defining the argument.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.ThrowIf.ArgumentNullOrEmpty(System.Linq.Expressions.Expression{System.Func{System.String}})">
+            <summary>
+            Checks if a string argument is null or empty. Pass the argument as a lambda expression.
+            </summary>
+            <example>
+            Guard.ArgumentNullOrEmpty(() => someStringArgument);
+            </example>
+            <param name="func">The lambda expression defining the argument.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.ThrowIf.ArgumentNullOrEmpty(System.String,System.String)">
+            <summary>
+            Checks if a string argument is null or empty. Pass the argument along with the name of the argument.
+            </summary>
+            <example>
+            Guard.ArgumentNullOrEmpty(someStringArgument, "someStringArgument");
+            </example>
+            <param name="value">The argument value.</param>
+            <param name="name">The argument name.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.ThrowIf.ArgumentNullOrWhiteSpace(System.Linq.Expressions.Expression{System.Func{System.Object,System.String}})">
+            <summary>
+            Checks if a string argument is null, whitespace only or empty. Pass the argument as a lambda expression.
+            </summary>
+            <example>
+            Guard.ArgumentNullOrWhiteSpace(() => someStringArgument);
+            </example>
+            <param name="func">The lambda expression defining the argument.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.ThrowIf.ArgumentNullOrWhiteSpace(System.Linq.Expressions.Expression{System.Func{System.String}})">
+            <summary>
+            Checks if a string argument is null, whitespace only or empty. Pass the argument as a lambda expression.
+            </summary>
+            <example>
+            Guard.ArgumentNullOrWhiteSpace(() => someStringArgument);
+            </example>
+            <param name="func">The lambda expression defining the argument.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.ThrowIf.ArgumentNullOrWhiteSpace(System.String,System.String)">
+            <summary>
+            Checks if a string argument is null, whitespace only or empty. Pass the argument along with the name of the argument.
+            </summary>
+            <example>
+            Guard.ArgumentNullOrWhiteSpace(someStringArgument, "someStringArgument");
+            </example>
+            <param name="value">The argument value.</param>
+            <param name="name">The argument name.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Validation.Provider.Cache.IValidatorCache.GetValidators(System.Type,System.String)">
+            <summary>
+             Returns all validators that can be applied to the given Type / Property.
+            </summary>
+            <param name="type"></param>
+            <param name="propertyName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.Validation.Provider.Cache.Internal.PropertyCache">
+            <summary>
+            Contains all validators for a certain property.
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.Validation.Provider.Cache.Internal.TypeCache">
+            <summary>
+            Contains all Validators for a certain type.
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Validation.Provider.Cache.Internal.TypeCache.GetValidationRules(System.Type,System.String)">
+            <summary>
+            Gets all validators for the given type.
+            This method will check on IsAssignableFrom of the given Type.
+            </summary>
+            <param name="type"></param>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.Validation.Provider.Cache.ValidatorCache">
+            <summary>
+            Caches validators for Type / Property.
+            These are cached because they are retrieved from multiple ValidatorProviders (using MEF), 
+            based on IsAssignableFrom.
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.Validation.Provider.Cache.Internal.ValidatorWrapper">
+            <summary>
+            Adds some extra information around a Validator.
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Validation.Provider.ValidatorProviderBase.AddValidators">
+            <summary>
+            Force overrides in subclasses.
+            These overrides call AddValidator(..) to  get stuff done.
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Validation.Provider.ValidatorProviderBase.ForProperty``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Adds validators for the given Type / Property.
+            </summary>
+            <typeparam name="TOwner"></typeparam>
+            <typeparam name="TProp"></typeparam>
+            <param name="propertySelector"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Validation.Provider.ValidatorProviderBase.ValidatorFluent`2.DoAdd(System.Func{iPASoftware.iRAD.Basics.Validation.Provider.ICheckPropertyFluent{`0,`1},iPASoftware.iRAD.Basics.Validation.Provider.IValidatorFluentEnd},iPASoftware.iRAD.Basics.Validation.Validators.IValidator,System.Boolean)">
+            <summary>
+            Adds the validator to the cache by delegating to the fluent.
+            </summary>
+            <param name="fluent"></param>
+            <param name="validator"></param>
+            <param name="buildUpValidator"></param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Validation.RadValidationResult.#ctor">
+            <summary>
+            Keep this private, must use static methods.
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.Validation.Validation">
+            <summary>
+            Static class that can be used to manually validate a certain object.
+            All known validators for that object will be executed.
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.Validation.Validators.RegexValidator">
+            <summary>
+            Validates that the given value matches the regular expression.
+            Value Null is valid.
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.Validation.Validators.Validator`1">
+            <summary>
+            Validates a property.
+            </summary>
+            <typeparam name="TProperty"></typeparam>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:iPASoftware.iRAD.Basics.Validation.Validators.IValidator" -->
+        <member name="T:iPASoftware.iRAD.Basics.Validation.Validators.NotNullValidator">
+            <summary>
+            Validates that the given value is not null.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:iPASoftware.iRAD.Basics.Validation.Validators.RangeValidator`1" -->
+        <member name="T:iPASoftware.iRAD.Basics.Validation.Validators.StringLengthValidator">
+            <summary>
+            Validates that the length of the string is between min and max length.
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Basics.Validation.Validators.Validator`2">
+            <summary>
+            Validates a property, with extra knowledge of the property owner.
+            </summary>
+            <typeparam name="TOwner"></typeparam>
+            <typeparam name="TProperty"></typeparam>
+        </member>
+        <member name="M:iPASoftware.iRAD.Basics.Validation.Validators.ValidatorInvoker.Invoke(iPASoftware.iRAD.Basics.Validation.Validators.IValidator,System.Object,System.Object,iPASoftware.iRAD.Basics.Validation.ValidationLevel,System.String)">
+            <summary>
+            Runs the given validator for the given Property / Owner.
+            </summary>
+            <param name="validator"></param>
+            <param name="property"></param>
+            <param name="owner"></param>
+            <param name="validationLevel"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

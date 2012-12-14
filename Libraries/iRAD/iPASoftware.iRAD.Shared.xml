@@ -1,0 +1,406 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>iPASoftware.iRAD.Shared</name>
+    </assembly>
+    <members>
+        <member name="M:iPASoftware.iRAD.Shared.ThrowIf.ArgumentNull``1(System.Linq.Expressions.Expression{System.Func{System.Object,``0}})">
+            <summary>
+            Checks if an argument is null. Pass the argument as a lambda expression.
+            </summary>
+            <example>
+            Guard.ArgumentNull(x => someArgument);
+            </example>
+            <typeparam name="TArgument">The type of the argument.</typeparam>
+            <param name="func">The lambda expression defining the argument.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.ThrowIf.ArgumentNull``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+            Checks if an argument is null. Pass the argument as a lambda expression.
+            </summary>
+            <example>
+            Guard.ArgumentNull(() => someArgument);
+            </example>
+            <typeparam name="TArgument">The type of the argument.</typeparam>
+            <param name="func">The lambda expression defining the argument.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.ThrowIf.ArgumentNull``1(``0,System.String)">
+            <summary>
+            Checks if an argument is null. Pass the argument along with the name of the argument.
+            </summary>
+            <example>
+            Guard.ArgumentNull(someArgument, "someArgument");
+            </example>
+            <param name="value">The argument value.</param>
+            <param name="name">The argument name.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.ThrowIf.ArgumentNullOrEmpty(System.Linq.Expressions.Expression{System.Func{System.Object,System.String}})">
+            <summary>
+            Checks if a string argument is null or empty. Pass the argument as a lambda expression.
+            </summary>
+            <example>
+            Guard.ArgumentNullOrEmpty(x => someStringArgument);
+            </example>
+            <param name="func">The lambda expression defining the argument.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.ThrowIf.ArgumentNullOrEmpty(System.Linq.Expressions.Expression{System.Func{System.String}})">
+            <summary>
+            Checks if a string argument is null or empty. Pass the argument as a lambda expression.
+            </summary>
+            <example>
+            Guard.ArgumentNullOrEmpty(() => someStringArgument);
+            </example>
+            <param name="func">The lambda expression defining the argument.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.ThrowIf.ArgumentNullOrEmpty(System.String,System.String)">
+            <summary>
+            Checks if a string argument is null or empty. Pass the argument along with the name of the argument.
+            </summary>
+            <example>
+            Guard.ArgumentNullOrEmpty(someStringArgument, "someStringArgument");
+            </example>
+            <param name="value">The argument value.</param>
+            <param name="name">The argument name.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.ThrowIf.ArgumentNullOrWhiteSpace(System.Linq.Expressions.Expression{System.Func{System.Object,System.String}})">
+            <summary>
+            Checks if a string argument is null, whitespace only or empty. Pass the argument as a lambda expression.
+            </summary>
+            <example>
+            Guard.ArgumentNullOrWhiteSpace(() => someStringArgument);
+            </example>
+            <param name="func">The lambda expression defining the argument.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.ThrowIf.ArgumentNullOrWhiteSpace(System.Linq.Expressions.Expression{System.Func{System.String}})">
+            <summary>
+            Checks if a string argument is null, whitespace only or empty. Pass the argument as a lambda expression.
+            </summary>
+            <example>
+            Guard.ArgumentNullOrWhiteSpace(() => someStringArgument);
+            </example>
+            <param name="func">The lambda expression defining the argument.</param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.ThrowIf.ArgumentNullOrWhiteSpace(System.String,System.String)">
+            <summary>
+            Checks if a string argument is null, whitespace only or empty. Pass the argument along with the name of the argument.
+            </summary>
+            <example>
+            Guard.ArgumentNullOrWhiteSpace(someStringArgument, "someStringArgument");
+            </example>
+            <param name="value">The argument value.</param>
+            <param name="name">The argument name.</param>
+        </member>
+        <member name="T:iPASoftware.iRAD.Shared.ChangeTracking.GraphVisitors.IGraphVisitor">
+            <summary>
+            Visitor implementation for ITrackableEntities
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.ChangeTracking.GraphVisitors.IGraphVisitor.Visit(iPASoftware.iRAD.Shared.ChangeTracking.Generated.IObjectWithChangeTracker)">
+            <summary>
+            Visit the given entity
+            </summary>
+            <param name="trackableEntity"></param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.ChangeTracking.GraphVisitors.IGraphVisitor.UnVisit(iPASoftware.iRAD.Shared.ChangeTracking.Generated.IObjectWithChangeTracker)">
+            <summary>
+            The given entity leaves the object graph; clean up resources
+            </summary>
+            <param name="trackableEntity"></param>
+        </member>
+        <member name="T:iPASoftware.iRAD.Shared.ChangeTracking.GraphVisitors.EntityUndoubleVisitor">
+            <summary>
+            The same entities may appear multiple times in an object graph.
+            Typically for related objects such as Country.
+            
+            This visitor makes sure all doubles get removed.
+            This only works when there are no changes in doubles. 
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.ChangeTracking.GraphVisitors.EntityUndoubleVisitor.Replace(System.Reflection.PropertyInfo,iPASoftware.iRAD.Shared.ChangeTracking.Generated.IObjectWithChangeTracker,System.Object)">
+            <summary>
+            Replaces the propery with the actual, non-copy, value.
+            All changetracking is stopped during this operation.
+            </summary>
+            <param name="propertyInfo"></param>
+            <param name="owner"></param>
+            <param name="actual"></param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.ChangeTracking.GraphVisitors.EntityUndoubleVisitor.Replace(System.Collections.IList,iPASoftware.iRAD.Shared.ChangeTracking.Generated.IObjectWithChangeTracker,iPASoftware.iRAD.Shared.Entities.IEntity,System.Object)">
+            <summary>
+            In the given collection, replaces the given copy with the actual, non-copy, value.
+            All changetracking is stopped during this operation.
+            </summary>
+            <param name="collection"></param>
+            <param name="owner"></param>
+            <param name="copy"></param>
+            <param name="actual"></param>
+        </member>
+        <member name="T:iPASoftware.iRAD.Shared.ChangeTracking.GraphVisitors.GraphPropertyChangedVisitor">
+            <summary>
+            Keeps track of property changes in graph
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Shared.ChangeTracking.GraphVisitors.DecoratorVisitor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Shared.ChangeTracking.GraphVisitors.IsDirtyChangedVisitor">
+            <summary>
+            Visitor implementation that attaches a IsDirtyChanged event handler
+            to every object in the graph. When one object changes, it fires the IsDirtyChanged event.
+            
+            Precondition: objects in graph are decorated with IObjectChangeTrackerExtended
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Shared.ChangeTracking.GraphVisitors.GraphVisitorStrategy">
+            <summary>
+            Strategy implementation to travel through an object graph of ITrackableEntity.
+            
+            This implementation goes depth-first:
+            - only considering public relations
+            - only considering ITrackableEntities
+            - only considering relations marked with the DataMember attribute
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.ChangeTracking.GraphVisitors.GraphVisitorStrategy.ShouldTravel(System.Reflection.PropertyInfo)">
+            <summary>
+            Only travel relation properties that have the DataMemberAttribute
+            and are assignable from IRadEntity
+            </summary>
+            <param name="property"></param>
+            <returns></returns>
+        </member>
+        <member name="T:iPASoftware.iRAD.Shared.ChangeTracking.GraphVisitors.ObjectGraphChangedEventArgs">
+            <summary>
+            Indicates a change in the object graph.
+            
+            Handle with care:
+            A removedRelationshipItem can still live in the object graph;
+                it was just removed from one relationship; it might be attached to other ones.
+            An addedRelationshipItem can already live in the object graph;
+                it was just added to one relationship; it might already have been attached to other ones.
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Shared.ChangeTracking.GraphVisitors.ObjectGraphChangedVisitor">
+            <summary>
+            Taking care of property changes in the object graph;
+            This visitor is self-spreading: it will auto-apply itself to additions in the graph.
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.ChangeTracking.GraphVisitors.ObjectGraphChangedVisitor.DoForCollectionProperties(System.Object,System.Action{System.Collections.Specialized.INotifyCollectionChanged})">
+            <summary>
+            Performs the given action for all collection properties on the given owner.
+            </summary>
+            <param name="owner"></param>
+            <param name="action"></param>
+        </member>
+        <member name="T:iPASoftware.iRAD.Shared.ChangeTracking.GraphVisitors.ObjectGraphChangedVisitor.CollectVisitor">
+            <summary>
+            Collects all items in an object graph.
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Shared.ChangeTracking.Graph.ClientObjectGraph">
+            <summary>
+            Representing an object graph, holding on to the root object.
+            
+            This class supports graph-scope functionality for a graph of ITrackableEntity's:
+            - IsDirty
+            - Revert
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Shared.ChangeTracking.Graph.ObjectGraph">
+            <summary>
+            Representing an object graph, holding on to the root object.
+            </summary>
+        </member>
+        <member name="F:iPASoftware.iRAD.Shared.ChangeTracking.Graph.ObjectGraph.Root">
+            <summary>
+            The root of this object graph
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.ChangeTracking.Graph.ObjectGraph.AcceptChanges">
+            <summary>
+            Calls the accept changes on every object within this object graph.
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.ChangeTracking.Graph.ObjectGraph.AcceptVisitor(iPASoftware.iRAD.Shared.ChangeTracking.GraphVisitors.IGraphVisitor)">
+            <summary>
+            Runs the given visitor for every object within this object graph.
+            </summary>
+            <param name="graphVisitor"></param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.ChangeTracking.Graph.ObjectGraph.AcceptVisitors(iPASoftware.iRAD.Shared.ChangeTracking.GraphVisitors.IGraphVisitor[])">
+            <summary>
+            Runs the given visitors for every object within this object graph.
+            </summary>
+            <param name="graphVisitors"></param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.ChangeTracking.Graph.ObjectGraph.Dispose">
+            <summary>
+            Cleanup resources.
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Shared.ChangeTracking.Graph.IClientObjectGraph">
+            <summary>
+            Represents an object graph
+            </summary>
+        </member>
+        <member name="F:iPASoftware.iRAD.Shared.ChangeTracking.Graph.ClientObjectGraph.dirtyObjectChangeTrackers">
+            <summary>
+            keeping track of the ObjectChangeTrackers that are dirty in this graph.
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.ChangeTracking.Graph.ClientObjectGraph.Init">
+            <summary>
+            Run an IsDirtyChangedVisitor throughout the graph,
+            and register it to run on ObjectGraph changes.
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.ChangeTracking.Graph.ClientObjectGraph.isDirtyChangedVisitor_IsDirtyChanged(System.Object,iPASoftware.iRAD.Shared.ChangeTracking.IsDirtyChangedEventArgs)">
+            <summary>
+            Callback for IsDirty changes within the graph;
+            When any object within the graph changes it's IsDirty, the IsDirty of the graph also changes.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.ChangeTracking.Graph.ClientObjectGraph.Revert">
+            <summary>
+            Calls the revert on every object within this object graph.
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.ChangeTracking.Graph.ClientObjectGraph.Dispose">
+            <summary>
+            Cleanup resources.
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Shared.ChangeTracking.IObjectChangeTrackerExtended">
+            <summary>
+            Extension on the standard IObjectChangeTracker, with support
+            for an IsDirty flag and Revert functionality.
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Shared.ChangeTracking.IObjectChangeTracker">
+            <summary>
+            Created an interface for the ObjectChangeTracker.
+            Decorator pattern will be applied to extend it's basic functionality.
+            
+            This basic functionality is implemented by Microsoft's Self-Tracking entities generated code,
+            and can be found in: iPASoftware.iRAD.Shared.ChangeTracking.Generated.ObjectChangeTracker
+            
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Shared.ChangeTracking.ObjectChangeTrackerExtended">
+            <summary>
+            Wrapper that adds following functionality to the basic ObjectChangeTracker:
+            - Keeps original values for all properties that are changed (although, not serialized)
+              (OG ObjectChangeTracker only for navigation properties and FK's)
+            - Exposes an IsDirty flag and fires an IsDirtyChanged event
+            - Adds a Revert method
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.ChangeTracking.ObjectChangeTrackerExtended.HandlePropertyChanging(System.String,System.Object,System.Object)">
+            <summary>
+            Handles a property change:
+            - Records the original value, if needed (it has not been recorded before)
+            - Removes the recorded original value, if needed (if the newValue == the original value)
+            </summary>
+            <param name="propertyName"></param>
+            <param name="oldValue"></param>
+            <param name="newValue"></param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.ChangeTracking.ObjectChangeTrackerExtended.Revert(iPASoftware.iRAD.Shared.ChangeTracking.Generated.IObjectWithChangeTracker)">
+            <summary>
+            Reverts all values on this instance
+            </summary>
+            <param name="target"></param>
+        </member>
+        <member name="T:iPASoftware.iRAD.Shared.Entities.Crud.DefaultObjectCopier`1">
+            <summary>
+            Takes a one-level copy of the given object.
+            Related objects references are copied, them are not copied.
+            </summary>
+            <typeparam name="TObject"></typeparam>
+        </member>
+        <member name="T:iPASoftware.iRAD.Shared.Entities.IEntityWithId`1">
+            <summary>
+            Generic entity with id interface. This interface provides readonly access to an Id property.
+            </summary>
+            <typeparam name="TId">The type of the Id property.</typeparam>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.Entities.IEntityExtensions.EntityEquals(iPASoftware.iRAD.Shared.Entities.IEntity,System.Object)">
+            <summary>
+            Equals implementation for IEntities.
+            </summary>
+            <param name="one"></param>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="T:iPASoftware.iRAD.Shared.Entities.ITrackableEntity">
+            <summary>
+            Base interface for entities that can be tracked in an N-Tier scenario
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Shared.ChangeTracking.Generated.ObjectChangeTracker">
+            <summary>
+            Changes: implementing IObjectChangeTracker, added two methods
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Shared.Entities.ITrackableEntityExtensions">
+            <summary>
+            Helper methods for working with ITrackableEntities.
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.Entities.ITrackableEntityExtensions.IsIdDefault(System.Object)">
+            <summary>
+            Returns true if the id == 0 for value types (int, long, ..) or
+            if the id == null for reference  types.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.Entities.ITrackableEntityExtensions.ToAcceptedList``1(System.Linq.IQueryable{``0})">
+            <summary>
+            Accepts all the Entities in the given IQueryable. 
+            Forces the IQueryable to be executed!
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.Entities.ITrackableEntityExtensions.ToAcceptedArray``1(System.Linq.IQueryable{``0})">
+            <summary>
+            Accepts all the Entities in the given IQueryable. 
+            Forces the IQueryable to be executed!
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.Entities.ITrackableEntityExtensions.AcceptChanges``1(``0)">
+            <summary>
+            Accepts the changes throughout the entire object graph, starting at root.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="root"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.Entities.ITrackableEntityExtensions.RemoveDuplicates``1(``0)">
+            <summary>
+            Removes duplicate entities in the entire object graph, starting at root.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="root"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.Entities.ITrackableEntityExtensions.IsTrackableEntity(System.Type)">
+            <summary>
+            Returns true if type is ITrackableEntity.
+            Be aware that this could be AOP'd.
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

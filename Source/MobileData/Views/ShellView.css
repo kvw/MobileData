@@ -1,0 +1,481 @@
+﻿
+	#__irad_shell {
+		position: relative;
+		background: #14426d;
+		max-width: 360px;
+		height: 100%;
+		margin: 0 auto;
+		box-shadow: 0px 0 30px rgba(0,0,0,0.3);
+	}
+
+	#portrait {
+		position: absolute;
+		left: 0; right: 0;
+		top: 0; bottom: 0;
+	}
+
+	/* top bar */
+
+	#top {
+		position: fixed;
+		top: 0;
+		left: 0; right: 0;
+		height: 80px;
+		z-index: 100;
+	}
+
+	#top > div {
+		max-width: 360px;
+		position: relative;
+		height: 100%;
+		margin: 0 auto;
+		overflow: hidden;
+	}
+
+	#top > div > div {
+		position: relative;
+		bottom: 10px;
+		width: 100%;
+		height: 60px;
+		padding: 10px;
+		background: rgba(17,56,87,0.9) url(~/layout/img/top-bg.png) bottom left no-repeat;		
+		-webkit-background-size: auto 100% !important; 
+		box-shadow: 0px 0 8px rgba(0,0,0,0.9);
+	}
+
+	@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+		#top > div > div { background-image: url(~/layout/img/top-bg@2x.png); }
+	}
+
+
+	#logo {
+		width: 50px;
+		height: 50px;
+		margin: 10px;
+		background: url(~/layout/img/kinepolis-logo.png) top center no-repeat;		
+		-webkit-background-size: auto 100% !important;
+	    float: left;
+	}
+
+    #versioninfo {
+        position: absolute;
+        bottom: 1px;
+        left: 80px;
+        right: 0;
+        opacity: 0.5;
+        font-size: 7pt;
+    }
+
+
+    #versioninfo div {
+        display: inline;
+        margin-right: 10px;
+    }
+
+    #versioninfo span {
+        font-weight: normal;
+    }
+
+    #movieinfo {
+        float: left;
+        margin: 12px 0;
+        font-weight: normal;
+        font-style: italic;
+        color: #92c7fc;
+        font-size: 9pt;
+        line-height: 11pt;
+    }
+
+    #movieinfo h2 {
+        font-size: 12pt;
+        font-weight: bold;
+        font-style: normal;
+        color: #bbddf2;
+        margin-bottom: 2px;
+    }
+
+    #versioninfo span {
+        font-weight: normal;
+    }
+
+	@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+		#logo { background-image: url(~/layout/img/kinepolis-logo@2x.png); }
+	}
+
+
+	/* center */
+
+	#main {
+		position: absolute;
+		left: 0; right: 0;
+		top: 0; bottom: 0;
+		min-height: 420px;
+	}
+
+        
+	#busy {
+		position: absolute;
+		left: 0; right: 0;
+		top: 0; bottom: 0;
+	    background: rgba(1, 39, 65, 0.92);
+	    z-index: 99;
+	}
+
+    #busy > div:last-child {
+		display: table;
+	    width: 100%;
+	    height: 100%;
+        z-index: 10;
+	}
+
+    #busy > div:last-child > div {
+        display: table-cell;
+        vertical-align: middle;
+        opacity: 0.9;
+    }
+
+    #busy .spinner {
+        margin: 0 auto;
+        width: 65px;
+        height: 65px;
+		background: url(~/layout/img/loading.png) center center no-repeat;		
+		-webkit-background-size: auto 100% !important;
+        -webkit-animation: spinnerAnimation 2s infinite linear;
+        -moz-animation: spinnerAnimation 2s infinite linear;
+        -o-animation: spinnerAnimation 2s infinite linear;
+        -ms-animation: spinnerAnimation 2s infinite linear;
+        animation: spinnerAnimation 2s infinite linear;
+    }
+
+    #busy > .cross {
+        z-index: 0;
+    }
+
+    #busy .message {
+        color: white;
+        margin-top: 25px;
+        text-align: center;
+        font-size: 13pt;
+    }
+
+	@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+		#busy .spinner { background-image: url(~/layout/img/loading@2x.png); }
+	}
+
+    @-webkit-keyframes spinnerAnimation {
+        from { -webkit-transform: rotate(0deg); }
+        to { -webkit-transform: rotate(360deg); }
+    }
+    @-moz-keyframes spinnerAnimation {
+        from { -moz-transform: rotate(0deg); }
+        to { -moz-transform: rotate(360deg); }
+    }
+    @-ms-keyframes spinnerAnimation {
+        from { -ms-transform: rotate(0deg); }
+        to { -ms-transform: rotate(360deg); }
+    }
+    @keyframes spinnerAnimation {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    @-o-keyframes spinnerAnimation {
+        from { -o-transform: rotate(0deg); }
+        to { -o-transform: rotate(360deg); }
+    }
+                
+	#middle {
+		left: 0; right: 0;
+		top: 70px; bottom: 0;
+		position: absolute;
+		z-index: 5;
+
+		background: #2782c5; /* Old browsers */
+		background: -moz-linear-gradient(top,  #2782c5 0%, #0d314b 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2782c5), color-stop(100%,#0d314b)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #2782c5 0%,#0d314b 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #2782c5 0%,#0d314b 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #2782c5 0%,#0d314b 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  #2782c5 0%,#0d314b 100%); /* W3C */
+	}
+
+	#middle #contentwrapper {
+		overflow: scroll;
+		overflow-x: hidden;
+		-webkit-overflow-scrolling: touch;
+		left: 0; right: 0;
+		top: 0; bottom: 0;
+		position: absolute;
+		z-index: 2;	
+		-webkit-background-size: auto 50px !important;
+		background: url(~/layout/img/content-bg.png) top center repeat-y;
+	    padding: 0;
+		margin: 0 auto;
+	}
+
+	@media screen and (-webkit-min-device-pixel-ratio: 2) {
+		#middle #contentwrapper { background-image: url(~/layout/img/content-bg@2x.png); }
+	}
+
+    .desktop #middle #contentwrapper {
+	    padding-left: 8px;
+    }
+
+    .desktop #contentwrapper::-webkit-scrollbar {
+        height: 8px;
+	    width: 8px;
+	    background: transparent;
+    }
+
+    .desktop #contentwrapper::-webkit-scrollbar-thumb {
+        background: #393812;
+        -webkit-border-radius: 1ex;
+        -ms-border-radius: 1ex;
+        border-radius: 1ex;
+        -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+        -ms-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+    }
+
+    .desktop #contentwrapper::-webkit-scrollbar-corner {
+	    background: transparent;
+	}
+
+	.cross {
+		left: 0; right: 0;
+		top: 0; bottom: 0;
+		position: absolute;
+		background: url(~/layout/img/middle-cross.png);
+		-webkit-background-size: auto 4px !important;
+		z-index: 1;
+	}
+
+	@media screen and (-webkit-min-device-pixel-ratio: 2) {
+		.cross { background-image: url(~/layout/img/middle-cross@2x.png);  }
+	}
+
+	#middle #content {
+		margin: 0 auto;
+		width: 300px;
+		z-index: 2;
+		position: relative;
+		padding: 0 10px 46px 10px;
+	}
+
+	#middle #content > * {
+		position: relative;
+	}
+
+	#middle #contentwrapper.empty {
+		background: none;
+	}
+
+
+	/* bottom bar */
+
+	#bottom {
+		position: fixed;
+		height: 56px;
+		bottom: 0;
+		left: 0; right: 0;
+		z-index: 10;
+	}
+
+	#bottom > div {
+		max-width: 360px;
+		position: relative;
+		height: 100%;
+		margin: 0 auto;
+		overflow: hidden;
+	}
+
+	#bottom > div > div {
+		position: relative;
+		top: 10px;
+		width: 100%;
+		height: 46px;
+		background: url(~/layout/img/bottom-bg.png) top center no-repeat;		
+		-webkit-background-size: auto 46px !important; 
+		box-shadow: 0px 0 10px rgba(0,0,0,0.7);
+	}
+
+	#bottom.arrowless > div > div {
+	    background-image: url(~/layout/img/bottom-nomenu-bg.png);
+	}
+
+	@media screen and (-webkit-min-device-pixel-ratio: 2) {
+		#bottom > div > div { background-image: url(~/layout/img/bottom-bg@2x.png); }
+		#bottom.arrowless > div > div { background-image: url(~/layout/img/bottom-nomenu-bg@2x.png); }
+	}
+
+	#bottom-prev, #bottom-next {
+		width: 144px;
+		height: 100%;
+		position: absolute;
+	}
+
+	#bottom-prev {
+		left: 0;
+		top: 0; bottom: 0;
+		position: absolute;
+		width: 46%;
+	}
+
+	#bottom-next {
+		right: 0;
+		top: 0; bottom: 0;
+		position: absolute;
+		width: 46%;
+		margin-left: 16px;
+	}
+
+	#bottom-menu {
+		width: 26px;
+		height: 26px;
+		margin: 0 auto;
+		top: 10px;
+		position: relative;
+	}
+
+	#bottom button {
+		border: 0;
+		padding: 0;
+		border: 5px solid transparent;
+		margin: 0;
+		position: absolute;
+		background: none;
+		color: white;
+		font-family: helvetica neue, helvetica, arial;
+		font-size: 13pt;
+		left: 0; top: 0; right: 0; bottom: 0
+	}
+
+	#bottom button:disabled {
+		opacity: 0.5;
+	}
+
+	#bottom #bottom-menu button {
+		border: 0;
+		background: url(~/layout/img/menu-button-normal.png) center center no-repeat;
+		-webkit-background-size: auto 100% !important; 
+		text-indent: -10000px;
+	}
+
+	#bottom #bottom-prev button {
+		background: url(~/layout/img/bottom-arrow-left.png) left center no-repeat;
+		-webkit-background-size: auto 14px !important; 
+		text-align: right;
+		padding-right: 15px;
+	}
+
+	#bottom #bottom-next button {
+		background: url(~/layout/img/bottom-arrow-right.png) right center no-repeat;
+		-webkit-background-size: auto 14px !important; 
+		text-align: left;
+		padding-left: 15px;
+	}
+    
+	#bottom.arrowless #bottom-prev button {
+		text-align: center;
+		padding: 0 0 0 15px;
+	}
+
+	#bottom.arrowless #bottom-next button {
+		text-align: center;
+		padding: 0 15px 0 0;
+	}
+
+    #bottom #bottom-menu button {
+		background: url(~/layout/img/menu-button-normal.png) center center no-repeat;
+	}
+
+	#bottom #bottom-menu button:active {
+		background: url(~/layout/img/menu-button-pushed.png) center center no-repeat;
+	}
+
+	#bottom.arrowless #bottom-prev button, #bottom.arrowless #bottom-next button {
+		background: none;
+	}
+
+	@media screen and (-webkit-min-device-pixel-ratio: 2) {
+		#bottom #bottom-prev button { background-image: url(~/layout/img/bottom-arrow-left@2x.png); }
+		#bottom #bottom-next button { background-image: url(~/layout/img/bottom-arrow-right@2x.png); }
+		#bottom #bottom-menu button { background-image: url(~/layout/img/menu-button-normal@2x.png); }
+		#bottom #bottom-menu button { background-image: url(~/layout/img/menu-button-normal@2x.png); }
+		#bottom #bottom-menu button:active { background-image: url(~/layout/img/menu-button-pushed@2x.png); }
+	}
+
+
+	/* landscape */
+
+	#landscape {
+		position: absolute;
+		left: 0; right: 0;
+		top: 0; bottom: 0;
+	    min-height: 270px;
+		display: none;
+		overflow: hidden;
+
+		background: #2782c5; /* Old browsers */
+		background: -moz-linear-gradient(left,  #2782c5 0%, #0d314b 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, right top, color-stop(0%,#2782c5), color-stop(100%,#0d314b)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(left,  #2782c5 0%,#0d314b 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(left,  #2782c5 0%,#0d314b 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(left,  #2782c5 0%,#0d314b 100%); /* IE10+ */
+		background: linear-gradient(to right,  #2782c5 0%,#0d314b 100%); /* W3C */
+	}
+
+	@media only screen and (orientation: landscape) and (min-device-width : 320px) and (max-device-width : 360px) {
+        body {
+            min-height: 300px;
+        }
+
+	    #__irad_shell {
+		    max-width: none;
+	    }
+
+        #portrait {
+            display: none;
+        }
+
+        #landscape {
+    		display: block;
+        }
+	}
+
+
+	#landscape .overlay {
+		left: 0; right: 0;
+		top: 0; bottom: 0;
+		position: absolute;
+		background: url(~/layout/img/landscape-overlay.png);
+		-webkit-background-size: auto 4px !important;
+		z-index: 2;
+	}
+
+	@media screen and (-webkit-min-device-pixel-ratio: 2) {
+		#landscape .overlay { background-image: url(~/layout/img/landscape-overlay@2x.png); }
+	}
+
+
+	#landscape .rotate {
+		left: 0; right: 0;
+		top: 0; bottom: 0;
+		position: absolute;
+		background: url(~/layout/img/landscape-rotate.png) center center no-repeat;
+		-webkit-background-size: auto 75px !important;
+		z-index: 2;
+	}
+
+	@media screen and (-webkit-min-device-pixel-ratio: 2) {
+		#landscape .rotate { background-image: url(~/layout/img/landscape-rotate@2x.png); }
+	}
+
+
+
+    #bottom.totaltopay #bottom-next span:last-child {
+	    display: block;
+	    font-size: 8pt;
+	    position: relative;
+	    line-height: 8pt;
+	    font-weight: normal;
+    }

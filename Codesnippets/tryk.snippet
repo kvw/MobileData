@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Kinepolis try catch</Title>
+            <Shortcut>tryk</Shortcut>
+            <SnippetTypes>
+              <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Imports>
+                <Import>
+                    <Namespace>Kinepolis.MobileTicketing.Infrastructure</Namespace>
+                </Import>
+            </Imports>
+            <Code Language="csharp">
+                <![CDATA[try {
+                    $end$
+                  }
+                  catch (Exception ex) {
+                      if (!MessageBoxHandler.CanContinueAfterKinepolisException(ex))
+                          throw;
+                  }]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
+
+

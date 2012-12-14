@@ -1,0 +1,236 @@
+﻿	/* http://meyerweb.com/eric/tools/css/reset/ 
+	   v2.0 | 20110126
+	   License: none (public domain)
+	*/
+
+	html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	b, u, i, center,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td,
+	article, aside, canvas, details, embed, 
+	figure, figcaption, footer, header, hgroup, 
+	menu, nav, output, ruby, section, summary,
+	time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline;
+	}
+	/* HTML5 display-role reset for older browsers */
+	article, aside, details, figcaption, figure, 
+	footer, header, hgroup, menu, nav, section {
+		display: block;
+	}
+	body {
+		line-height: 1;
+	}
+	ol, ul {
+		list-style: none;
+	}
+	blockquote, q {
+		quotes: none;
+	}
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: '';
+		content: none;
+	}
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+
+	body {
+		background: #213d51;
+		color: white;
+		font-family: "helvetica neue", helvetica, arial;
+		font-weight: bold;
+		font-size: 10pt;
+	    min-height: 420px;
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+
+	body, button {
+		text-shadow: 0 -1px rgba(0,0,0,0.5);
+		font-weight: bold;
+		color: white;
+	}
+
+
+	/* common stuff */
+
+
+	.holder {
+		position: relative;
+		background: url(~/layout/img/holder.png) center center no-repeat;
+		-webkit-background-size: auto 81px !important;
+		height: 81px;
+	}
+
+	@media screen and (-webkit-min-device-pixel-ratio: 2) {
+		.holder { background-image: url(~/layout/img/holder@2x.png); }
+	}
+
+	.holder button {
+		display: block;
+		width: 63px;
+		height: 63px;
+		position: absolute;
+		top: 9px;
+		-webkit-background-size: auto 63px !important;
+		border: none;
+		text-indent: -10000px;
+	}
+
+	.holder button:first-child {
+		left: 25px;
+		background: url(~/layout/img/button-minus.png) center center no-repeat;
+	}
+
+	.holder button:last-child {
+		right: 25px;
+		background: url(~/layout/img/button-plus.png) center center no-repeat;
+	}
+
+	.holder button:first-child[disabled=disabled], .holder button:first-child:disabled {
+		background: url(~/layout/img/button-minus-disabled.png) center center no-repeat;
+	}
+
+	.holder button:last-child[disabled=disabled], .holder button:last-child:disabled {
+		background: url(~/layout/img/button-plus-disabled.png) center center no-repeat;
+	}
+
+	@media screen and (-webkit-min-device-pixel-ratio: 2) {
+		.holder button:first-child { background-image: url(~/layout/img/button-minus@2x.png); }
+		.holder button:last-child { background-image: url(~/layout/img/button-plus@2x.png); }
+    	.holder button:first-child[disabled=disabled], .holder button:first-child:disabled { background-image: url(~/layout/img/button-minus-disabled@2x.png); }
+    	.holder button:last-child[disabled=disabled], .holder button:last-child:disabled { background-image: url(~/layout/img/button-plus-disabled@2x.png); }
+	}
+
+	.holder span {
+		font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue", Arial;
+		position: relative;
+		top: 11px;
+		margin: 0 auto;
+		width: 76px;
+		height: 60px;
+		display: block;
+		line-height: 60px;
+		font-size: 41pt;
+		text-align: center;
+		text-shadow: none;
+	}
+
+	.buttonzone {
+		margin: 10px 0 0 0;
+		width: 300px;
+		background: rgba(37, 42, 50, 0.47);
+		padding: 0 0 2px 0;
+	    position: relative;
+	}
+
+	.buttonzone > div {
+		left: 0; right: 0;
+		top: 0; bottom: 0;
+		z-index: 0;
+		position: absolute;
+		background: -moz-linear-gradient(top,  rgba(37,42,50,1) 0%, rgba(37,42,50,0) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(37,42,50,1)), color-stop(100%,rgba(37,42,50,0))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  rgba(37,42,50,1) 0%,rgba(37,42,50,0) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  rgba(37,42,50,1) 0%,rgba(37,42,50,0) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  rgba(37,42,50,1) 0%,rgba(37,42,50,0) 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  rgba(37,42,50,1) 0%,rgba(37,42,50,0) 100%); /* W3C */
+		/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#252a32', endColorstr='#00252a32',GradientType=0 ); *//* IE6-9 */
+	}
+
+	.buttonzone button {
+		display: block;
+		border: 0;
+		height: 50px;
+		width: 100%;
+		position: relative;
+		color: #f6f3f3;
+		text-align: left;
+		background: url(~/layout/img/wide-button-bg.jpg) bottom left repeat-x;
+		-webkit-background-size: auto 48px !important;
+	}
+
+	@media screen and (-webkit-min-device-pixel-ratio: 2) {
+		.buttonzone button { background-image: url(~/layout/img/wide-button-bg@2x.jpg); }
+	}
+
+	.buttonzone button .arrow {
+		position: absolute;
+		right: 0;
+		width: 29px;
+		top: 0;
+		bottom: 0;
+		background: url(~/layout/img/wide-button-arrow-normal.png) center center no-repeat;
+		-webkit-background-size: auto 14px !important;
+	}
+
+	@media screen and (-webkit-min-device-pixel-ratio: 2) {
+		.buttonzone button .arrow { background-image: url(~/layout/img/wide-button-arrow-normal@2x.png); }
+	}
+
+	.buttonzone button:disabled span {
+		opacity: 0.3;
+	}
+
+    .enter-code {
+        margin-top: 65px;
+    }
+
+    .enter-code .explain {
+        margin: 10px 20px;
+        color: #92c7fc;
+        font-size: 11pt;
+        font-weight: normal;
+        line-height: 1.3em;
+        text-align: justify;
+    }
+
+    #portrait input.textinput {
+        background-color: transparent;
+		background: url(~/layout/img/input-bg.png) center center no-repeat;
+        -webkit-background-size: auto 32px !important;
+        font-size: 10pt;
+        line-height: 22px;
+        color: #f6f3f3;
+        width: 261px;
+        height: 22px;
+        padding: 5px 10px;
+        border: none;
+        -webkit-border-radius: 12px;
+        -moz-border-radius: 12px;
+        border-radius: 12px;
+        margin: 10px auto;
+        position: relative;
+        left: 10px;
+    }
+
+    @media screen and (-webkit-min-device-pixel-ratio: 2) {
+		#portrait input.textinput { background-image: url(~/layout/img/input-bg@2x.png); }
+	}
+
+    button:disabled {
+        opacity: 0.5;
+    }

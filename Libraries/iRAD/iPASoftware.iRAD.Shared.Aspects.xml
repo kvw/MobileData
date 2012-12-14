@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>iPASoftware.iRAD.Shared.Aspects</name>
+    </assembly>
+    <members>
+        <member name="T:iPASoftware.iRAD.Shared.Aspects.ChangeTracking.Instance.TrackableEntityAttribute">
+            <summary>
+            This aspect makes the given instance implement the ITrackableEntity interface:
+            - An IObjectChangeTracker is added to the instance
+            This aspect makes the given instance implement the IPocoWithChangeTracker interface:
+            - protected OnPropertyChanging methods are introduced
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Shared.Aspects.ChangeTracking.IPocoWithChangeTracker">
+            <summary>
+            Exposes some methods for Pocos with a ChangeTracker.
+            This interface is used to apply the trackable entity attribute:
+            Properties of such an entity need these methods to callback to.
+            </summary>
+        </member>
+        <member name="P:iPASoftware.iRAD.Shared.Aspects.ChangeTracking.Instance.TrackableEntityAttribute.ChangeTrackerBackingField">
+            <summary>
+            Backing field
+            </summary>
+        </member>
+        <member name="P:iPASoftware.iRAD.Shared.Aspects.ChangeTracking.Instance.TrackableEntityAttribute.ChangeTracker">
+            <summary>
+            Keep in line with Microsoft's STE T4 template.
+            Wrap the standard ObjectChangeTracker in an ObjectChangeTrackerExtended.
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Shared.Aspects.ChangeTracking.Instance.TrackablePocoAttribute">
+            <summary>
+            This attribute turns a POCO object into an ITrackableEntity.
+            
+            This is like Microsoft's STE, with these differences in behavior:
+            - in STE, a MarkAsDeleted() causes all relationships to be cleared;  not so with TrackablePocos.
+            - in STE, all relationships are bi-directional by default; not so with TrackalbePocos.
+            
+            
+            Choose to declare this attribute at all levels of an inheritance hierarchy.
+            Hence, the Inheritance mode is MulticastInheritance.None.
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.Aspects.ChangeTracking.Instance.TrackablePocoAttribute.ProvideAspects(System.Object)">
+            <summary>
+            This method is called at build time and should just provide other aspects.
+            </summary>
+            <param name="targetElement"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.Aspects.ChangeTracking.Instance.TrackablePocoAttributeHelper.FilterPropertiesToAdvice(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo})">
+            <summary>
+            Only advice public properties which are a DataMember;
+            Makes no sense to advice non-datamembers; these will not be serialized N-Tier anyway.
+            </summary>
+            <param name="propertiesToAdvice"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.Aspects.ChangeTracking.Instance.TrackablePocoAttributeHelper.ClassifyProperties(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo},System.Collections.Generic.IList{System.Reflection.PropertyInfo}@,System.Collections.Generic.IList{System.Reflection.PropertyInfo}@,System.Collections.Generic.IList{System.Reflection.PropertyInfo}@,System.Collections.Generic.IList{System.Reflection.PropertyInfo}@,System.Collections.Generic.IList{System.Reflection.PropertyInfo}@)">
+            <summary>
+            Classifies the given list of properties into three categories:
+            - Simple properties
+            - Navigation properties
+            - TrackableCollection properties
+            </summary>
+            <param name="propertiesToAdvice"></param>
+            <param name="simpleProperties"></param>
+            <param name="navigationProperties"></param>
+            <param name="trackableCollectionProperties"></param>
+            <param name="unknownProperties"></param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.Aspects.ChangeTracking.Instance.TrackablePocoAttributeHelper.GetTypeClassification(System.Type)">
+            <summary>
+            Determines the TypeClassification
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:iPASoftware.iRAD.Shared.Aspects.ChangeTracking.Property.NavigationPropertyAttribute">
+            <summary>
+            This aspect makes sure that the given collection gets change-tracked correctly:
+            - Additions / removals from this collection are recorded.
+            - the collection itself is lazy initialized
+            - objects added to the collection are tracked if the owner is tracked
+            - TODO bi-directional?
+            - TODO Delete clears nav properties?
+            
+            This aspect can only be applied on properties that satisfy these constraints:
+            - the property type must implement INotifyCollectionChanged
+            - the property type must be generic
+            - the property type's generic argument must implement IObjectWithChangeTracker
+            - the property's declaring type must implement IObjectWithChangeTracker
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Shared.Aspects.ChangeTracking.Property.SimplePropertyAttribute">
+            <summary>
+            This aspect makes sure that the given collection gets change-tracked correctly:
+            - Additions / removals from this collection are recorded.
+            - the collection itself is lazy initialized
+            - objects added to the collection are tracked if the owner is tracked
+            - TODO bi-directional?
+            - TODO Delete clears nav properties?
+            
+            This aspect can only be applied on properties that satisfy these constraints:
+            - the property type must implement INotifyCollectionChanged
+            - the property type must be generic
+            - the property type's generic argument must implement IObjectWithChangeTracker
+            - the property's declaring type must implement IObjectWithChangeTracker
+            </summary>
+        </member>
+        <member name="T:iPASoftware.iRAD.Shared.Aspects.ChangeTracking.Property.TrackableCollectionAttribute">
+            <summary>
+            This aspect makes sure that the given collection gets change-tracked correctly:
+            - Additions / removals from this collection are recorded.
+            - the collection itself is lazy initialized
+            - objects added to the collection are tracked if the owner is tracked
+            - TODO bi-directional?
+            - TODO Delete clears nav properties? (done)
+            
+            This aspect can only be applied on properties that satisfy these constraints:
+            - the property type must implement INotifyCollectionChanged
+            - the property type must be generic
+            - the property type's generic argument must implement IObjectWithChangeTracker
+            - the property's declaring type must implement IObjectWithChangeTracker
+            </summary>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.Aspects.ChangeTracking.Property.TrackableCollectionAttribute.FixupCollection(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            The sender here is not the collection itself, but the owner of the collection!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:iPASoftware.iRAD.Shared.Aspects.IoC.LazyDependencyAttribute.OnGetValue(PostSharp.Aspects.LocationInterceptionArgs)">
+            <summary>
+            Work-around;
+            Using some obscure property name here to avoid name clashes with the class using the [LazyDependency].
+            This would cause the dependency on this aspect not being resolved correctly.
+            </summary>
+        </member>
+    </members>
+</doc>

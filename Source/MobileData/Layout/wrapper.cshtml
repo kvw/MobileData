@@ -1,0 +1,54 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=no">
+
+    <title>@Model.Title</title>
+
+    @Model.Stylesheets()
+
+    <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    @Model.Scripts()
+
+    <script type='text/javascript'>
+
+        @Model.RadConstructor
+
+    </script>
+    
+    @Model.ExtraHeadContent
+</head>
+
+<body>
+    <div id="__irad_shell" data-bind="iradTemplate: mainRegion"></div>
+    <div id="__irad_loading">
+        <div>Loading...</div>
+    </div>
+    <div id="__irad_terminated">
+        <div><div id="__irad_terminated_message"></div></div>
+    </div>
+
+    <!-- templates -->
+    <script type="text/html" id="__iradview_empty"> </script>
+    <script type="text/html" id="__iradview_loading">
+    </script>
+    <script type="text/html" id="__iradview_notfound">
+        <div style="background: orange;">
+            View not found: <span data-bind="text: __irad_viewName"></span> <span data-bind="text: __irad_modelIdentifier"></span>
+        </div>
+    </script>
+
+    @Model.Shell    
+    
+    <script type="text/javascript">
+        $(function() {
+            $.irad.boot();
+        });
+    </script>
+
+</body>
+
+</html>

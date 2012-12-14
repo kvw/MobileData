@@ -1,0 +1,204 @@
+	.k-modal-background {
+		display:table;
+		background: rgba(1,39,65,0.92) url(img/middle-cross.png);
+		width: 100%;
+		height: 100%;
+		padding-bottom: 46px;
+		z-index: 10000;
+		position: absolute; 
+	}
+	
+	@media screen and (-webkit-min-device-pixel-ratio: 2) {
+		.k-modal-background { background-image: url(img/middle-cross@2x.png); }
+	}
+
+	.k-modal-wrapper { 
+		display: table-cell;
+		vertical-align:middle;
+	    width: 100%;
+	    height: 100%;
+	}
+
+	.ie8 .k-modal-wrapper, .ie9 .k-modal-wrapper { 
+		display: block;
+	    width: 100%;
+	    height: 100%;
+	}
+
+	.k-modal {	
+		display: block;
+	    margin: 0 auto;
+	    width: 100%;
+		background: white; 
+		-webkit-background-size: auto 300px !important; 
+		box-shadow: 0px 0 8px rgba(0,0,0,0.9);
+	}
+
+	.k-modal.error {	
+		background: url(img/modal-bg-error.jpg) top left repeat-x;
+	}
+
+	.k-modal.warning {	
+		background: url(img/modal-bg-warning.jpg) top left repeat-x;
+	}
+
+	.k-modal.success {	
+		background: url(img/modal-bg-success.jpg) top left repeat-x;
+	}
+
+	@media screen and (-webkit-min-device-pixel-ratio: 2) {
+		.k-modal.error { background-image: url(img/modal-bg-error@2x.jpg); }
+		.k-modal.warning { background-image: url(img/modal-bg-warning@2x.jpg); }
+		.k-modal.success { background-image: url(img/modal-bg-success@2x.jpg); }
+	}
+
+	.k-modal-body {
+	  overflow-y: auto;
+	  max-height: 400px;
+	  padding: 25px;
+	  font-size: 13pt;
+	}
+
+	.k-modal-footer {
+		background: url(img/modal-vert-divider.png) left top  repeat-x;
+		padding-top: 1px;
+		-webkit-background-size: 5px 2px !important; 
+	}
+
+	.k-modal button {
+		width: 100%;
+		display: inline-block;
+		float: left;
+		border: none;
+		background: url(img/modal-horz-divider.png) right top repeat-y;
+		-webkit-background-size: auto 5px !important; 
+		height: 46px;
+	  	font-size: 13pt;
+	}
+
+	@media screen and (-webkit-min-device-pixel-ratio: 2) {
+		.k-modal-footer { background-image: url(img/modal-vert-divider@2x.png); }
+		.k-modal button { background-image: url(img/modal-horz-divider@2x.png); }
+	}
+
+	.k-modal h3 {
+	    font-size: 10pt;
+	    margin-bottom: 10px;
+	    opacity: 0.8;
+    }
+
+	.k-modal button:disabled {
+		opacity: 0.5;
+	}
+
+	.k-modal button:last-child {
+		float: none;
+		background: none;
+	}
+
+	.k-modal .buttons-2 button {
+		width: 50%;
+	}
+
+	.k-modal .buttons-3 button {
+		width: 33%;
+	}
+
+
+
+	.k-smallmodal-background {
+	    position: absolute;
+	    width: 100%;
+	    height: 100%;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	    z-index: 99;
+	    background: rgba(0,0,0,0.01);
+	}
+
+	.k-smallmodal-wrapper { 
+	}
+
+    .k-smallmodal {	
+	    position: absolute;
+	    top: 70px;
+	    left: 0;
+	    right: 0;
+        height: 45px;
+	    padding: 0 35px 0 0;
+		background: #ccc; 
+		-webkit-background-size: auto 46px !important; 
+		box-shadow: 0px 0 8px rgba(0,0,0,0.9);
+	}
+
+	.k-smallmodal.error {	
+		background: url(img/notification-bg-error.png) top left repeat-x;
+	}
+
+	.k-smallmodal.warning {	
+		background: url(img/notification-bg-warning.png) top left repeat-x;
+	}
+
+	.k-smallmodal.success {	
+		background: url(img/notification-bg-success.png) top left repeat-x;
+	}
+
+	@media screen and (-webkit-min-device-pixel-ratio: 2) {
+		.k-smallmodal.error { background-image: url(img/notification-bg-error@2x.png); }
+		.k-smallmodal.warning { background-image: url(img/notification-bg-warning@2x.png); }
+		.k-smallmodal.success { background-image: url(img/notification-bg-success@2x.png); }
+	}
+
+  	.k-smallmodal-body {	
+	    padding: 13px 0 13px 60px;
+	    position: absolute;
+	    top: 0;bottom: 0;
+	    left: 0; right: 0;
+  	    width: 100%;
+	    line-height: 19px;
+	    height: 19px;
+        font-size: 10pt;
+  	    text-overflow: ellipsis;
+	}
+
+	.k-smallmodal.error .k-smallmodal-body {	
+		background: url(img/notification-icon-error.png) 18px center no-repeat;
+		-webkit-background-size: auto 22px !important; 
+	}
+
+	.k-smallmodal.warning .k-smallmodal-body {	
+		background: url(img/notification-icon-warning.png) 16px center no-repeat;
+		-webkit-background-size: auto 22px !important; 
+	}
+
+	.k-smallmodal.success .k-smallmodal-body {	
+		background: url(img/notification-icon-success.png) 25px center no-repeat;
+		-webkit-background-size: auto 12px !important; 
+	}
+
+	@media screen and (-webkit-min-device-pixel-ratio: 2) {
+		.k-smallmodal.error .k-smallmodal-body { background-image: url(img/notification-icon-error@2x.png); }
+		.k-smallmodal.warning .k-smallmodal-body { background-image: url(img/notification-icon-warning@2x.png); }
+		.k-smallmodal.success .k-smallmodal-body { background-image: url(img/notification-icon-success@2x.png); }
+	}
+
+    .k-smallmodal button {
+		display: block;
+        position: absolute;
+		right: 0;
+        top: 0;
+		border: none;
+		background: url(img/notification-close-button.png) center 14px no-repeat;
+		-webkit-background-size: auto 16px !important; 
+		height: 46px;
+        width: 35px;
+	  	font-size: 13pt;
+        text-indent: -10000px;
+	}
+
+    @media screen and (-webkit-min-device-pixel-ratio: 2) {
+		.k-smallmodal button { background-image: url(img/notification-close-button@2x.png); }
+	}
+

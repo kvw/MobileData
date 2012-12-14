@@ -182,6 +182,8 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="ViewModels\BootingViewModel.cs" />
+    <Compile Include="ViewModels\DataGridViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -190,6 +192,7 @@
     <Content Include="Layout\messageboxhandler.js" />
     <Content Include="Layout\default.css" />
     <Content Include="Layout\modals.css" />
+    <Content Include="Views\DataGridView.html" />
     <Content Include="Views\ShellView.js" />
     <Content Include="Views\ShellView.css" />
     <Content Include="Views\ShellView.html" />

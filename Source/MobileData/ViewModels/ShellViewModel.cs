@@ -7,7 +7,6 @@ using iPASoftware.iRAD.Shared.Aspects.Composite;
 
 namespace iRAD.MobileData.ViewModels
 {
-
     [NotifyPropertiesChanged]
     class ShellViewModel : ViewModelBase
     {
@@ -21,35 +20,15 @@ namespace iRAD.MobileData.ViewModels
 
         #region Binding Properties
 
-  
+
         public object MainContent { get; set; }
-        public string AppVersion { get; set; }
-        public string DllVersion { get; set; }
-        public string HostAddress { get; set; }
 
         #endregion
 
-        public override async void OnBindComplete()
+        public override void OnInitialized()
         {
-            base.OnBindComplete();
-            
-            // subscribe to events
-         
-            try
-            {
-                AppVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString(3);
-               
-                HostAddress = Application.Info.HostAddress.MapToIPv4().ToString();
-            }
-            catch (Exception)
-            {
-            }
+            this.MainContent = Container.Resolve<DataGridViewModel>();
         }
 
-
-    }
-
-    internal class BootingViewModel
-    {
     }
 }
